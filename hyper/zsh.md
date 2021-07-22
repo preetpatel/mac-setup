@@ -2,8 +2,6 @@
 
 The Z shell \(also known as `zsh`\) is a Unix shell that is the default shell for macOS. It's recommended to use `zsh` over `bash`. It's also highly recommended to install a framework with `zsh` as it makes dealing with configuration, plugins and themes a lot nicer.
 
-We've also included an `env.sh` file where we store our aliases, exports, path changes etc. We put this in a separate file to not pollute our main configuration file too much. This file is found in the bottom of this page.
-
 Install `zsh` using [Homebrew](../homebrew/):
 
 ```bash
@@ -81,35 +79,4 @@ ZSH_THEME=pygmalion
 ```
 
 You'll find a list of themes with screenshots on the [Oh My Zsh Wiki](https://github.com/robbyrussell/oh-my-zsh/wiki/themes).
-
-## `env.sh`
-
-To include `env.sh`, open `~/.zshrc` and add the following:
-
-```bash
-source ~/<path to file>/env.sh
-```
-
-This file comes with some pre-defined settings, **they are all optional**. Please review them before you use them as your configuration. These are just examples to show you what you can customise in your shell.
-
-```bash
-#!/bin/zsh
-
-# Add commonly used folders to $PATH
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-
-# Specify default editor. Possible values: vim, nano, ed etc.
-export EDITOR=vim
-
-# File search functions
-function f() { find . -iname "*$1*" ${@:2} }
-function r() { grep "$1" ${@:2} -R . }
-
-# Create a folder and move into it in one command
-function mkcd() { mkdir -p "$@" && cd "$_"; }
-
-# Example aliases
-alias cppcompile='c++ -std=c++11 -stdlib=libc++'
-alias g='git'
-```
 
