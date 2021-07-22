@@ -1,40 +1,25 @@
-# iTerm2
+# Hyper
 
-[iTerm2](http://www.iterm2.com/) is an open source replacement for Apple's Terminal. It's highly customizable and comes with a lot of useful features.
+[Hyper](https://hyper.is) is an open source replacement for Apple's Terminal. It's highly customisable and comes with a lot of useful features.
 
 ## Installation
 
-Use [Homebrew](https://sourabhbajaj.com/mac-setup/Homebrew/) to download and install:
+Use [Homebrew](../homebrew/) to download and install:
 
 ```bash
-brew install --cask iterm2
+brew install --cask hyper
 ```
 
-## Customization
+## Customisation
 
-### Colors and Font Settings
+### Name
 
-Here are some suggested settings you can change or set, **they are all optional**.
+I like to change the name of Hyper.app to Terminal.app which makes it easier to open via muscle memory from spotlight. You probably need to open the Hyper app 3-4 times before Spotlight remembers not to suggest the default terminal app.
 
-* Set hot-key to open and close the terminal to `command + option + i`
-* Go to profiles -&gt; Default -&gt; Terminal -&gt; Check silence bell to disable the terminal session from making any sound
-* Download [one of iTerm2 color schemes](https://github.com/mbadolato/iTerm2-Color-Schemes/tree/master/schemes) and then set these to your default profile colors
-* Change the cursor text and cursor color to yellow make it more visible
-* Change the font to 14pt Source Code Pro Lite. Source Code Pro can be downloaded using [Homebrew](https://sourabhbajaj.com/mac-setup/Homebrew/) `brew tap homebrew/cask-fonts && brew install --cask font-source-code-pro`
-* If you're using BASH instead of ZSH you can add `export CLICOLOR=1` line to your `~/.bash_profile` file for nice coloring of listings
-
-[![Screen](https://raw.githubusercontent.com/sb2nov/mac-setup/main/assets/Iterm.png)](https://raw.githubusercontent.com/sb2nov/mac-setup/main/assets/Iterm.png)
-
-### MacOS shortcuts ⌘←, ⌘→ and ⌥←, ⌥→
-
-You might be familiar with shortcuts to skip a word \(⌥\) or go to start/end of the line \(⌘\). iTerm is not set up to work with these shortcuts by default but here's how you set them up:
-
-Open up iTerm2 preferences \(⌘ + ,\) -&gt; Profiles -&gt; Keys -&gt; Click on `+` icon \(add new Keyboard shortcut\).
-
-| shortcut | action | Esc+ |
-| :---: | :---: | :---: |
-| ⌘← | Send Escape Sequence | OH |
-| ⌘→ | Send Escape Sequence | OF |
-| ⌥← | Send Escape Sequence | b |
-| ⌥→ | Send Escape Sequence | f |
+|  |
+| :--- |
+|  |
+|  |
+|  |
+|  |
 

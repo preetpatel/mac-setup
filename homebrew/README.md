@@ -18,19 +18,7 @@ To install Homebrew run the following in a terminal:
 
 hit **Enter**, and follow the steps on the screen.
 
-### Setting up your `PATH`
 
-To make the Homebrew-installed programs available in your shell, you need to add your Homebrew installation location to your `$PATH`. This is done for you already on macOS 10.14 Mojave and newer. For older versions of macOS, do the following:
-
-You change your path by adding `/usr/local/bin` to your `PATH` environment variable. This can be done on a per-user basis by adjusting `PATH` in your `~/.bash_profile`. To do this, run:
-
-```bash
-echo 'PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile
-```
-
-\(If you're using `zsh`, you should do this for `~/.zshrc` in addition to `~/.bash_profile`.\)
-
-Alternatively, you can also insert `/usr/local/bin` before the first line of `/etc/paths` to change the global default paths order, for all users and all major shells. An admin password will be required if you modify the file.
 
 Then, to be able to use `brew` you need to start a new terminal session. After that you should make sure everything is working by running:
 
