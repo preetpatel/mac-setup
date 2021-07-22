@@ -44,11 +44,4 @@
 * [Docker](docker/README.md)
   * [Useful Commands](docker/usefulcommands.md)
   * [Tips and Tricks](docker/tipsandtricks.md)
-* [LaTeX](latex.md)
-* [Other Apps](apps/README.md)
-  * [Octave](apps/octave.md)
-  * [App Settings](apps/settings.md)
-* [Security](security.md)
-* [References](references.md)
-* [Contributors](contributors.md)
 

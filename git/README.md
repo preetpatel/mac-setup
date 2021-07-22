@@ -19,6 +19,7 @@ Next, we'll define your Git user \(should be the same name and email you use for
 ```bash
 git config --global user.name "Your Name Here"
 git config --global user.email "your_email@youremail.com"
+git config --global github.user "Your github username"
 ```
 
 They will get added to your `.gitconfig` file.
@@ -29,108 +30,64 @@ To push code to your GitHub repositories, we will use the recommended HTTPS meth
 git config --global credential.helper osxkeychain
 ```
 
-## Using HTTPS for GitHub \(recommended\)
+## .gitconfig
 
-These instructions are from [the official documentation](https://help.github.com/en/github/using-git/which-remote-url-should-i-use#cloning-with-https-urls-recommended).
-
-### Clone repositories using HTTPS
-
-After creating a new repo on GitHub, clone it using:
+These are the additional git configurations that can go under `~/.gitconfig`
 
 ```bash
-git clone https://github.com/<username>/<repo-name>.git
-```
-
-- if you had initialized with a README.
-
-If you did not, follow the instructions in the section below.
-
-### Set up a new or existing repo with HTTPS for GitHub
-
-If you are setting up a new repo, add at least one file and commit first. Then, configure the remote and push to GitHub by running:
-
-```bash
-git remote add origin https://github.com/<username>/<repo-name>.git
-git push -u origin master
-```
-
-## SSH Config for GitHub
-
-These instructions are for those who wish to use SSH and not HTTPS, and are from [the official documentation](https://help.github.com/articles/generating-ssh-keys).
-
-### Check for existing SSH keys
-
-First check for existing SSH keys on your computer by running:
-
-```bash
-ls -al ~/.ssh
-# Lists the files in your .ssh directory, if they exist
-```
-
-Check the directory listing to see if you have files named either `id_rsa.pub` or `id_dsa.pub`. If you don't have either of those files then read on, otherwise skip the next section.
-
-### Generate a new SSH key
-
-If you don't have an SSH key you need to generate one. To do that you need to run the commands below, and make sure to substitute the placeholder with your email. The default settings are preferred, so when you're asked to enter a file in which to save the key, just press Enter to continue.
-
-```bash
-ssh-keygen -t rsa -C "your_email@example.com"
-# Creates a new ssh key, using the provided email as a label
-```
-
-### Add your SSH key to the ssh-agent
-
-Run the following commands to add your SSH key to the `ssh-agent`.
-
-```bash
-eval "$(ssh-agent -s)"
-```
-
-If you're running macOS Sierra 10.12.2 or later, you will need to modify your `~/.ssh/config` file to automatically load keys into the ssh-agent and store passphrases in your keychain:
-
-```text
-Host *
-  AddKeysToAgent yes
-  UseKeychain yes
-  IdentityFile ~/.ssh/id_rsa
-```
-
-No matter what operating system version you run you need to run this command to complete this step:
-
-```bash
-ssh-add -K ~/.ssh/id_rsa
-```
-
-### Adding a new SSH key to your GitHub account
-
-The last step is to let GitHub know about your SSH key so GitHub can recognize you. Run this command to copy your key to your clipboard:
-
-```bash
-pbcopy < ~/.ssh/id_rsa.pub
-```
-
-Then go to GitHub and [input your new SSH key](https://github.com/settings/ssh/new). Paste your key in the "Key" text-box and pick a name that represents the computer you're currently using.
-
-We are now ready to use SSH with GitHub!
-
-### Clone repositories using SSH
-
-After creating a new repo on GitHub, clone it using
-
-```bash
-git clone git@github.com:<username>/<repo-name>.git
-```
-
-- if you had initialized with a README.
-
-If you did not, follow the instructions in the section below.
-
-### Set up a new or existing repo with SSH for GitHub
-
-If you are setting up a new repo, add at least one file and commit first. Then, configure the remote and push to GitHub by running:
-
-```bash
-git remote add origin git@github.com:<username>/<repo-name>.git
-git push -u origin master
+[apply]
+  whitespace = fix
+[color]
+  ui = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[merge]
+  log = true
+[push]
+  ; "simple" avoid headaches, specially if you use `--force` w/o specifying branch
+  ; see: http://stackoverflow.com/questions/13148066/warning-push-default-is-unset-its-implicit-value-is-changing-in-git-2-0
+  default = simple
+[url "git://github.com/"]
+  insteadOf = "github:"
+[url "git@github.com:"]
+  insteadOf = "gh:"
+  pushInsteadOf = "github:"
+  pushInsteadOf = "git://github.com/"
+[core]
+  excludesfile = ~/.gitignore_global
+  ; setting the editor fixes git commit bug http://tooky.co.uk/2010/04/08/there-was-a-problem-with-the-editor-vi-git-on-mac-os-x.html
+  editor = /usr/bin/vim
+[alias]
+  ; show merge tree + commits info
+  graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+  lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative
+  ; basic logging for quick browsing
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cgreen\\ [%cn]" --decorate
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cgreen\\ [%cn]" --decorate --numstat
+  ; log + file diff
+  fl = log -u
+  ; find paths that matches the string
+  f = "!git ls-files | grep -i"
+  ; delete all merged branches
+  ; dm = !git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
+  ; shortcuts
+  cp = cherry-pick
+  st = status -s
+  cl = clone
+  ci = commit
+  co = checkout
+  br = branch
+  dc = diff --cached
 ```
 

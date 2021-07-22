@@ -1,16 +1,16 @@
 # Zsh
 
-The Z shell \(also known as `zsh`\) is a Unix shell that is built on top of `bash` \(the default shell for macOS\) with additional features. It's recommended to use `zsh` over `bash`. It's also highly recommended to install a framework with `zsh` as it makes dealing with configuration, plugins and themes a lot nicer.
+The Z shell \(also known as `zsh`\) is a Unix shell that is the default shell for macOS. It's recommended to use `zsh` over `bash`. It's also highly recommended to install a framework with `zsh` as it makes dealing with configuration, plugins and themes a lot nicer.
 
 We've also included an `env.sh` file where we store our aliases, exports, path changes etc. We put this in a separate file to not pollute our main configuration file too much. This file is found in the bottom of this page.
 
-Install `zsh` using Homebrew:
+Install `zsh` using [Homebrew](../homebrew/):
 
 ```bash
 brew install zsh
 ```
 
-Now you should install a framework, we recommend to use [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) or [Prezto](https://github.com/sorin-ionescu/prezto). **Note that you should pick one of them, not use both.**
+Now you should install a framework, we recommend to use [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh).
 
 The configuration file for `zsh` is called `.zshrc` and lives in your home folder \(`~/.zshrc`\).
 
@@ -22,12 +22,6 @@ Install Oh My Zsh:
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-```
-
-The installation script should set `zsh` to your default shell, but if it doesn't you can do it manually:
-
-```bash
-chsh -s $(which zsh)
 ```
 
 ### Configuration
@@ -45,14 +39,14 @@ source ~/.zshrc
 Add plugins to your shell by adding the name of the plugin to the `plugin` array in your `.zshrc`.
 
 ```bash
-plugins=(git colored-man-pages colorize pip python brew osx)
+plugins=(colorize gitfast fd nvm vi-mode z)
 ```
 
 You'll find a list of all plugins on the [Oh My Zsh Wiki](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins). Note that adding plugins can cause your shell startup time to increase.
 
 **zsh-syntax-highlighting**
 
-The Syntax Highlighting plugin adds beautiful colors to the commands you are typing.
+The Syntax Highlighting plugin adds beautiful colours to the commands you are typing.
 
 Clone the zsh-syntax-highlighting plugin’s repo and copy it to the “Oh My ZSH” plugins directory.
 
@@ -87,63 +81,6 @@ ZSH_THEME=pygmalion
 ```
 
 You'll find a list of themes with screenshots on the [Oh My Zsh Wiki](https://github.com/robbyrussell/oh-my-zsh/wiki/themes).
-
-## Prezto
-
-[Prezto](https://github.com/sorin-ionescu/prezto) is a configuration framework for `zsh`; it enriches the command line interface environment with sane defaults, aliases, functions, auto completion, and prompt themes.
-
-Install Prezto:
-
-```bash
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-```
-
-Next create your `~/.zshrc` by running:
-
-```bash
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-  done
-```
-
-For more information on customisation visit the [GitHub repository for Prezto](https://github.com/sorin-ionescu/prezto).
-
-### Modules
-
-Add modules to Prezto by editing `~/.zpreztorc` and adding the modules as strings to the list:
-
-```bash
-zstyle ':prezto:load' pmodule \
-  'environment' \
-  'terminal' \
-  'editor' \
-  'history' \
-  'directory' \
-  'spectrum' \
-  'utility' \
-  'completion' \
-  'git' \
-  'syntax-highlighting' \
-  'history-substring-search' \
-  'prompt'
-```
-
-And don't forget to apply your changes by **starting a new shell instance**.
-
-### Themes
-
-To list all available themes run:
-
-```bash
-prompt -l
-```
-
-Then open up your config file \(`~/.zpreztorc`\) and change to the theme you want:
-
-```bash
-zstyle ':prezto:module:prompt' theme 'minimal'
-```
 
 ## `env.sh`
 
