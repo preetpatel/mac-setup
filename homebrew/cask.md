@@ -26,6 +26,9 @@ brew install \
     docker \
     docker-compose \
     docker-machine \
+    vim \
+    tree \
+    ack \
 ```
 
 ### App Suggestions
