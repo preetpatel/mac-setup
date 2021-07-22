@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Introduction](README.md)
-* [System Preferences](systempreferences.md)
+* [System Configuration](systempreferences.md)
 * [Xcode](xcode.md)
 * [Homebrew](homebrew/README.md)
   * [Usage](homebrew/usage.md)
