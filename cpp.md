@@ -1,4 +1,4 @@
-# CPlusPlus
+# C++
 
 Make sure you have installed [Xcode Command Line Tools](https://sourabhbajaj.com/mac-setup/Xcode/). Check the C++ version to make sure it is Clang 4.0+.
 
