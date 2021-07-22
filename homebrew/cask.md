@@ -42,5 +42,25 @@ brew install --cask \
     1password \
     visual-studio-code \
     cheatsheet \
+    messenger \
+    slack \
+    microsoft-outlook \
+    postman \
+    spotify \
+    keybase \
+    microsoft-teams \
+    discord \
+    webstorm \
+    adobe-creative-cloud \
+    meetingbar \
+    android-studio \
+    insomnia \
+    homebrew/cask-drivers/logitech-options \
+    zoom \
+    elgato-control-center \
+    figma \
+    adguard \
+    
+    
 ```
 
